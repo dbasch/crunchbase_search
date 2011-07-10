@@ -9,6 +9,7 @@ require 'rubygems'
 require 'indextank'
 require 'json'
 require 'open-uri'
+require 'yaml'
 
 def fetch(name, uri)
   begin
@@ -22,6 +23,9 @@ def fetch(name, uri)
   end
 end
 
+config = YAML::load(File.open('config.yaml'))
+categories = config['categories'].split('|').map{|x| x.split(",")}
+
 categories = [ ['person', 'people'], 
   ['company', 'companies'], 
   ['product', 'products'], 
@@ -33,4 +37,4 @@ categories.each do |c|
     toget = 'http://api.crunchbase.com/v/1/' + c[0] + '/' + x['permalink'] + '.js'
     fetch('data/' + c[1] + '/' + x['permalink'] +'.js', toget)
   end
-end
+en

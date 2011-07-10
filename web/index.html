@@ -1,0 +1,90 @@
+<html>
+    <head>
+        <!-- Dependencies -->
+
+        <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.5.2/jquery.min.js"></script>
+        <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.11/jquery-ui.min.js"></script>
+        <script type="text/javascript" src="jquery.indextank.ize.js"></script>
+        <script type="text/javascript" src="jquery.indextank.autocomplete.js"></script>
+        <script type="text/javascript" src="jquery.indextank.ajaxsearch.js"></script>
+        <script type="text/javascript" src="jquery.indextank.renderer.js"></script>
+        <script type="text/javascript" src="jquery.indextank.instantsearch.js"></script>
+        <script type="text/javascript" src="jquery.indextank.instantlinks.js"></script>
+        <script type="text/javascript" src="jquery.indextank.basic.js"></script>
+
+<!--        <link type="text/css" rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.11/themes/smoothness/jquery-ui.css" media="all" /> -->
+
+        <link type="text/css" rel="stylesheet" href="jquery-ui-1.8.13.custom.css" media="all" /> 
+        <link type="text/css" rel="stylesheet" href="jquery.ui.autocomplete.css" media="all" /> 
+        <style>
+            .ui-menu {
+                padding: 0em;
+                width: 500px;
+            } 
+
+            .ui-menu-item {
+                border-bottom: 1px solid #eee;
+                padding: 2px;
+            }
+
+            .result span {
+                font-size: 14px;
+                vertical-align: top;
+                padding-left: 5px;
+            }
+            
+            .result span.highlighted {
+                font-weight: bolder;
+                padding-left: 0px;
+            }
+            
+            .result span.regular {
+                padding-left: 0px;
+            }
+            
+            .result span.description:before {
+                content: "--";
+                vertical-align: top;
+                padding: 5px;
+            }
+            .result span.description {
+                font-size: 10px;
+                padding-left: 0px;
+            }
+
+            #query {
+                width: 300px;
+            } 
+h3,body {
+                font-family:verdana;
+            }
+
+        </style>
+
+        <script>
+            $(document).ready(function(){
+                $("#myform").indextank_Ize("http://your_public_part.api.indextank.com", "crunchbase");
+                $("#query").indextank_InstantLinks({fieldThumbnail:'thumbnail'});
+            });
+            function load() {
+                var mytext = document.getElementById("query"); 
+                mytext.focus(); 
+            };
+
+
+</script>
+        </script>
+    </head>
+
+    <body onload="load()">
+        <h3>Instant Crunchbase</h3>
+        This is a demo of <a href="http://indextank.com/">IndexTank</a>'s search running on a static html page.<p/>
+
+        <form id="myform">
+            <small>Start typing the name of a company, person, etc.</small>
+            <input id="query" type="text" size="20"/>
+        </form>
+
+       Made by <a href="http://twitter.com/dbasch">@dbasch</a>
+    </body>
+</html>
