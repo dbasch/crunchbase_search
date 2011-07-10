@@ -31,4 +31,4 @@ categories.each do |c|
     toget = 'http://api.crunchbase.com/v/1/' + c[0] + '/' + x['permalink'] + '.js'
     fetch('data/' + c[1] + '/' + x['permalink'] +'.js', toget)
   end
-en
+end
