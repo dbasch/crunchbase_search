@@ -25,12 +25,6 @@ end
 
 config = YAML::load(File.open('config.yaml'))
 categories = config['categories'].split('|').map{|x| x.split(",")}
-
-categories = [ ['person', 'people'], 
-  ['company', 'companies'], 
-  ['product', 'products'], 
-  ['financial-organization', 'financial-organizations']]
-
 categories.each do |c|
   puts 'fetching ' + c[1]
   JSON.parse(File.read('data/' + c[1] + '.js')).each do |x| 
