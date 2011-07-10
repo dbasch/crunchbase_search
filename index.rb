@@ -41,11 +41,12 @@ categories.each do |c|
     end
     rel = 0
     products = 0
-    if description == 'company' #make companies more likely to be a top result
+    overview = Math.log(1 + (props['overview'] or '').length)
+    if description == "company" #make companies more likely to be a top result
       rel = props['relationships'].length
       products = props['products'].length
+      overview *= 2
     end
-    overview = Math.log(1 + (props['overview'] or '').length)
     url = props['crunchbase_url']
     t = props['image']
     if t
