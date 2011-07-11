@@ -1,3 +1,3 @@
 index_name: crunchbase
 api_url: your_api_url
-categories: "person,people|company,companies|product,products|financial-organization,financial-organizations"
+categories: "person,people|company,companies|product,products|financial-organization,financial-organizations|service-provider,service-providers"
